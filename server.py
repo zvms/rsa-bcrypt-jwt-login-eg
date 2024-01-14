@@ -94,6 +94,12 @@ def get_public_cert():
 def valid():
     return "Valid"
 
+@app.post('/need_admin', dependencies=[Depends(valid_token)])
+def need_admin(payload: dict = Depends(valid_token)):
+    if payload['permission'] == 'admin':
+        return 'Valid'
+    else:
+        raise HTTPException(status_code=403, detail="Permission denied")
 
 if __name__ == "__main__":
     uvicorn.run(app, host="0.0.0.0:8000")

@@ -55,3 +55,10 @@ def valid():
     return r.json()
 
 print(valid())
+
+def is_admin():
+    url = 'http://127.0.0.1:8000/need_admin'
+    r = requests.post(url, headers=header)
+    return r.json()
+
+print(is_admin())
