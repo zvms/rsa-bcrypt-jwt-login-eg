@@ -48,3 +48,10 @@ print(token)
 header = {
   'Authorization': 'Bearer ' + token
 }
+
+def valid():
+    url = 'http://127.0.0.1:8000/valid'
+    r = requests.post(url, headers=header)
+    return r.json()
+
+print(valid())

@@ -87,5 +87,3 @@ result = jwt_decode(token)
 print(result)
 
 print(bcrypted)
-
-# print(check_password(decrypted, bcrypted))
